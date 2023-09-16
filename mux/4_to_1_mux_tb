@@ -1,0 +1,41 @@
+// Code your testbench here
+// or browse Examples
+module mux_4to1_tb;
+
+  reg a;
+  reg b;
+  reg c;
+  reg d;
+  reg [1:0] sel;
+  wire out;
+  
+  mux_4to1 dut (.in1(a), .in2(b), .in3(c), .in4(d), .sel(sel), .out(out));
+  
+  initial begin
+    // Test case 1: Select input 1
+    a= 0;b = 0;c = 0; d= 1;
+    sel = 2'b00;
+    #10;
+    // Test case 2: Select input 2
+    a= 0;b = 1;c = 1; d= 0;
+    sel = 2'b01;
+    #10;
+
+    // Test case 3: Select input 3
+    a= 1;b = 0;c = 0; d= 1;
+    sel = 2'b10;
+    #10;
+
+    // Test case 4: Select input 4
+    a= 0;b = 1;c = 1; d= 1;
+    sel = 2'b11;
+    #10;
+  end
+  initial begin
+    $dumpfile("dump.vcd");
+    $dumpvars(0);
+    #80;
+    $finish();
+  end
+
+endmodule

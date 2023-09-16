@@ -1,0 +1,39 @@
+module mux_gare_tb;
+  //port 
+  reg a;  //input as reg
+  reg b;
+  reg s;
+  wire o; // output as wire 
+  
+  //instantiation 
+  mux_by_gate mux_dut(.in1(a),.in2(b),.sel(s),.out(o));
+   
+  //initial block 
+  initial begin
+    
+  a=0;b=0;s=0;
+  #5;
+  a=1;b=0;s=0;
+  #5
+  a=0;b=1;s=0;
+  #5
+  a=1;b=1;s=0;
+  #5
+  a =0;b=0;s=1;
+  #5;
+  a=1;b=0;s=1;
+  #5
+  a=0;b=1;s=1;
+  #5
+  a=1;b=1;s=1;
+    
+  end
+  
+   initial begin 
+    $dumpfile("dump.vcd");
+    $dumpvars(0);
+    #50;//it will change according to need
+    $finish();
+  end   
+
+endmodule
