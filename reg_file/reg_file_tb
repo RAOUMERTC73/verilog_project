@@ -1,0 +1,62 @@
+// Code your testbench here
+// or browse Examples
+
+module reg_tb ;
+  
+  reg clk;
+  reg clear;
+  reg [4-1:0 ]write_loc; //address depends on 16 
+  reg w_e;
+  reg [4-1:0 ]read_e;
+  reg [5-1:0] data_in;     
+  wire  [5-1:0] data_out;
+  
+  
+  //instent
+  register dut (.*);
+  
+ 
+  
+  //clock 
+ 
+  always #10 clk=~clk;
+  
+  
+  
+  
+  
+   initail begin //input block 
+    
+     clk=0;
+     clear=0;
+     w_e=1;
+     write_loc=12;
+     read_e=0;
+     data_in=32'ha4A7;
+     
+     #5
+     
+     
+    
+    
+    
+  end
+  
+  
+  
+  
+  
+  
+  
+  initail begin //wave dump
+    
+    
+    
+    
+    
+  end
+  
+  
+  
+  
+endmodule
